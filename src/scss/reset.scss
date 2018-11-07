@@ -1,12 +1,6 @@
 @import "./config";
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html, body {
+html, body, page {
     color: $g-font-color_default;
     background-color: $g-background-color_floor;
     font-size: px2rem(12);

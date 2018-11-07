@@ -193,22 +193,6 @@
     text-overflow: ellipsis;
 }
 
-/* 水平垂直居中 - 伪类 */
-.g-xy-center_sham {
-    font-size: 0;
-    text-align: center;
-    & > :nth-child(n) {
-        display: inline-block;
-        vertical-align: middle;
-    }
-    &:before {
-        content: '';
-        height: 100%;
-        display: inline-block;
-        vertical-align: middle;
-    }
-}
-
 /* 水平垂直居中 - flex */
 .g-xy-center_flex {
     display: flex;
