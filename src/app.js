@@ -1,5 +1,5 @@
 import Taro, {Component} from '@tarojs/taro';
-import Index from './pages/index';
+import Index from './pages/home';
 
 import './app.scss';
 
