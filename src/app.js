@@ -8,11 +8,14 @@ class App extends Component {
   config = {
     pages: [
       'pages/home/index',
+      'pages/contact-us/index',
+      'pages/about-us/index',
+      'pages/service-content/index',
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'WeChat',
+      navigationBarTitleText: '商派提供技术支持',
       navigationBarTextStyle: 'black',
     },
   };

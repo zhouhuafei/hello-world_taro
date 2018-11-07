@@ -1,7 +1,7 @@
 // 配置
 @import "./scss/config";
 // 字体图标
-@import "./scss/iconfont";
+@import "./fonts/iconfont.css";
 // 清零样式
 @import "./scss/reset";
 // 工具样式
@@ -10,3 +10,5 @@
 @import "./scss/animations";
 // 媒体查询相关
 @import "./scss/media";
+// 底部导航插件
+@import "./scss-components/g-footer-nav";

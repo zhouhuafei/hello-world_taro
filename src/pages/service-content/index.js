@@ -10,7 +10,7 @@ import {
 export default class Index extends Component {
 
   config = {
-    navigationBarTitleText: '首页',
+    navigationBarTitleText: '服务内容',
   };
 
   state = {
@@ -19,31 +19,30 @@ export default class Index extends Component {
   };
 
   componentWillMount() {
-    console.log('home', 'componentWillMount');
+    console.log('contact-us', 'componentWillMount');
   }
 
   componentDidMount() {
-    console.log('home', 'componentDidMount');
+    console.log('contact-us', 'componentDidMount');
     // const article = '<div style="color: red">我是HTML代码</div>';
     // WxParse.wxParse('article', 'html', article, this.$scope, 5);
   }
 
   componentWillUnmount() {
-    console.log('home', 'componentWillUnmount');
+    console.log('contact-us', 'componentWillUnmount');
   }
 
   componentDidShow() {
-    console.log('home', 'componentDidShow');
+    console.log('contact-us', 'componentDidShow');
   }
 
   componentDidHide() {
-    console.log('home', 'componentDidHide');
+    console.log('contact-us', 'componentDidHide');
   }
 
   render() {
     return (
-      <View className="container" style={{background: `url(${this.state.pageBg})`}}>
-        <Image className="logo" src={this.state.logo}></Image>
+      <View className="container">
         {
           /*
           <import src='../../components/wxParse/wxParse_baidu.swan'/>
@@ -52,22 +51,22 @@ export default class Index extends Component {
         }
         <View className="g-footer-nav-wrap">
           <View className="g-footer-nav">
-            <View className="g-footer-nav-item">
+            <Navigator url="/pages/home/index" className="g-footer-nav-item">
               <View className="g-footer-nav-item-text">官方首页</View>
               <View className="g-footer-nav-item-desc">Home page</View>
-            </View>
-            <View className="g-footer-nav-item">
+            </Navigator>
+            <Navigator url="/pages/service-content/index" className="g-footer-nav-item">
               <View className="g-footer-nav-item-text">服务内容</View>{/*富文本*/}
               <View className="g-footer-nav-item-desc">Service content</View>
-            </View>
-            <View className="g-footer-nav-item">
+            </Navigator>
+            <Navigator url="/pages/about-us/index" className="g-footer-nav-item">
               <View className="g-footer-nav-item-text">关于我们</View>{/*富文本*/}
               <View className="g-footer-nav-item-desc">About us</View>
-            </View>
-            <View className="g-footer-nav-item">
+            </Navigator>
+            <Navigator url="/pages/contact-us/index" className="g-footer-nav-item">
               <View className="g-footer-nav-item-text">联系我们</View>
               <View className="g-footer-nav-item-desc">Contact us</View>
-            </View>
+            </Navigator>
           </View>
         </View>
       </View>
