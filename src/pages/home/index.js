@@ -20,7 +20,7 @@ export default class Index extends Component {
 
   render() {
     return (
-      <View className="container" style={{background: `url(${this.state.pageBg})`}}>
+      <View className="container" style={{backgroundImage: `url(${this.state.pageBg})`}}>
         {
           process.env.TARO_ENV === 'weapp' ? 'weapp' : 'swan'
         }
