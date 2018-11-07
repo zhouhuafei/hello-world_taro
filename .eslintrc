@@ -3,6 +3,8 @@
     "taro"
   ],
   "rules": {
+    "react/no-unused-state": 0,
+    "jsx-quotes": 0,
     "import/first": 0,
     "react/jsx-space-before-closing": 0,
     "no-unused-vars": 0,
