@@ -5,6 +5,7 @@ import {
   Image,
   Navigator,
 } from '@tarojs/components';
+import GFooterNav from '../../components/g-footer-nav';
 // import WxParse from '../../components/wxParse/wxParse';
 
 export default class Index extends Component {
@@ -19,25 +20,25 @@ export default class Index extends Component {
   };
 
   componentWillMount() {
-    console.log('contact-us', 'componentWillMount');
+    console.log('about-us', 'componentWillMount');
   }
 
   componentDidMount() {
-    console.log('contact-us', 'componentDidMount');
+    console.log('about-us', 'componentDidMount');
     // const article = '<div style="color: red">我是HTML代码</div>';
     // WxParse.wxParse('article', 'html', article, this.$scope, 5);
   }
 
   componentWillUnmount() {
-    console.log('contact-us', 'componentWillUnmount');
+    console.log('about-us', 'componentWillUnmount');
   }
 
   componentDidShow() {
-    console.log('contact-us', 'componentDidShow');
+    console.log('about-us', 'componentDidShow');
   }
 
   componentDidHide() {
-    console.log('contact-us', 'componentDidHide');
+    console.log('about-us', 'componentDidHide');
   }
 
   render() {
@@ -49,26 +50,7 @@ export default class Index extends Component {
           <template is='wxParse' data='{{{wxParseData:article.nodes}}}'/>
           */
         }
-        <View className="g-footer-nav-wrap">
-          <View className="g-footer-nav">
-            <Navigator url="/pages/home/index" className="g-footer-nav-item">
-              <View className="g-footer-nav-item-text">官方</View>
-              <View className="g-footer-nav-item-desc">Home page</View>
-            </Navigator>
-            <Navigator url="/pages/service-content/index" className="g-footer-nav-item">
-              <View className="g-footer-nav-item-text">服务内容</View>{/*富文本*/}
-              <View className="g-footer-nav-item-desc">Service content</View>
-            </Navigator>
-            <Navigator url="/pages/about-us/index" className="g-footer-nav-item">
-              <View className="g-footer-nav-item-text">关于我们</View>{/*富文本*/}
-              <View className="g-footer-nav-item-desc">About us</View>
-            </Navigator>
-            <Navigator url="/pages/contact-us/index" className="g-footer-nav-item">
-              <View className="g-footer-nav-item-text">联系我们</View>
-              <View className="g-footer-nav-item-desc">Contact us</View>
-            </Navigator>
-          </View>
-        </View>
+        <GFooterNav></GFooterNav>
       </View>
     );
   }

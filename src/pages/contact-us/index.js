@@ -5,7 +5,7 @@ import {
   Image,
   Navigator,
 } from '@tarojs/components';
-// import WxParse from '../../components/wxParse/wxParse';
+import GFooterNav from '../../components/g-footer-nav';
 
 export default class Index extends Component {
 
@@ -24,8 +24,6 @@ export default class Index extends Component {
 
   componentDidMount() {
     console.log('contact-us', 'componentDidMount');
-    // const article = '<div style="color: red">我是HTML代码</div>';
-    // WxParse.wxParse('article', 'html', article, this.$scope, 5);
   }
 
   componentWillUnmount() {
@@ -65,34 +63,8 @@ export default class Index extends Component {
             <View className="row-item-text">433890721</View>
           </View>
         </View>
-        {
-          /*
-          <import src='../../components/wxParse/wxParse_baidu.swan'/>
-          <template is='wxParse' data='{{{wxParseData:article.nodes}}}'/>
-          */
-        }
-        <View className="g-footer-nav-wrap">
-          <View className="g-footer-nav">
-            <Navigator url="/pages/home/index" className="g-footer-nav-item">
-              <View className="g-footer-nav-item-text">官方</View>
-              <View className="g-footer-nav-item-desc">Home page</View>
-            </Navigator>
-            <Navigator url="/pages/service-content/index" className="g-footer-nav-item">
-              <View className="g-footer-nav-item-text">服务内容</View>{/*富文本*/}
-              <View className="g-footer-nav-item-desc">Service content</View>
-            </Navigator>
-            <Navigator url="/pages/about-us/index" className="g-footer-nav-item">
-              <View className="g-footer-nav-item-text">关于我们</View>{/*富文本*/}
-              <View className="g-footer-nav-item-desc">About us</View>
-            </Navigator>
-            <Navigator url="/pages/contact-us/index" className="g-footer-nav-item">
-              <View className="g-footer-nav-item-text">联系我们</View>
-              <View className="g-footer-nav-item-desc">Contact us</View>
-            </Navigator>
-          </View>
-        </View>
+        <GFooterNav></GFooterNav>
       </View>
     );
   }
 }
-

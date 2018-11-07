@@ -1,4 +1,4 @@
-import '../scss-components/g-footer-nav.scss';
+import './index.scss';
 import Taro, {Component} from '@tarojs/taro';
 import {
   View,
@@ -13,19 +13,7 @@ export default class Index extends Component {
   }
 
   componentDidMount() {
-    console.log('contact-us', 'componentDidMount');
-  }
-
-  componentWillUnmount() {
-    console.log('g-footer-nav', 'componentWillUnmount');
-  }
-
-  componentDidShow() {
-    console.log('g-footer-nav', 'componentDidShow');
-  }
-
-  componentDidHide() {
-    console.log('g-footer-nav', 'componentDidHide');
+    console.log('g-footer-nav', 'componentDidMount');
   }
 
   render() {
