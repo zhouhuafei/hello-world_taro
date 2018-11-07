@@ -4,6 +4,8 @@ import {
   View,
   Text,
 } from '@tarojs/components';
+import '../../templates/wxParse/wxParse.scss';
+import wxParse from '../../templates/wxParse/wxParse.js';
 
 export default class Index extends Component {
 
@@ -35,6 +37,7 @@ export default class Index extends Component {
     return (
       <View className='index'>
         <Text>Hello world!</Text>
+        <import src='../../templates/wxParse/wxParse.wxml'/>
       </View>
     );
   }

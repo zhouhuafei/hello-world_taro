@@ -5,12 +5,7 @@
   "rules": {
     "import/first": 0,
     "react/jsx-space-before-closing": 0,
-    "no-unused-vars": [
-      "error",
-      {
-        "varsIgnorePattern": "Taro"
-      }
-    ],
+    "no-unused-vars": 0,
     "react/jsx-filename-extension": [
       1,
       {
