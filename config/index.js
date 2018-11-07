@@ -5,7 +5,7 @@ const config = {
   deviceRatio: {
     '640': 2.34 / 2,
     '750': 1,
-    '828': 1.81 / 2
+    '828': 1.81 / 2,
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
@@ -13,35 +13,35 @@ const config = {
     babel: {
       sourceMap: true,
       presets: [
-        'env'
+        'env',
       ],
       plugins: [
         'transform-class-properties',
         'transform-decorators-legacy',
-        'transform-object-rest-spread'
-      ]
-    }
+        'transform-object-rest-spread',
+      ],
+    },
   },
-  defineConstants: {
-  },
+  defineConstants: {},
   copy: {
-     patterns: [
+    patterns: [
+      {from: 'diff/components/wxParse/wxParse_baidu.wxml', to: 'dist/components/wxParse/wxParse_baidu.swan'},
+      {from: 'diff/components/wxParse/wxParse_weixin.wxml', to: 'dist/components/wxParse/wxParse_weixin.wxml'},
     ],
-    options: {
-    }
+    options: {},
   },
   weapp: {
     module: {
       postcss: {
         autoprefixer: {
-          enable: true
+          enable: true,
         },
         url: {
           enable: true,
-          limit: 10240
-        }
-      }
-    }
+          limit: 10240,
+        },
+      },
+    },
   },
   h5: {
     publicPath: '/',
@@ -49,16 +49,16 @@ const config = {
     module: {
       postcss: {
         autoprefixer: {
-          enable: true
-        }
-      }
-    }
-  }
-}
+          enable: true,
+        },
+      },
+    },
+  },
+};
 
 module.exports = function (merge) {
   if (process.env.NODE_ENV === 'development') {
-    return merge({}, config, require('./dev'))
+    return merge({}, config, require('./dev'));
   }
-  return merge({}, config, require('./prod'))
-}
+  return merge({}, config, require('./prod'));
+};

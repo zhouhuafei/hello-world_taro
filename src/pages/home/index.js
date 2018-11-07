@@ -4,8 +4,7 @@ import {
   View,
   Text,
 } from '@tarojs/components';
-import '../../templates/wxParse/wxParse.scss';
-import wxParse from '../../templates/wxParse/wxParse.js';
+import WxParse from '../../components/wxParse/wxParse';
 
 export default class Index extends Component {
 
@@ -19,6 +18,8 @@ export default class Index extends Component {
 
   componentDidMount() {
     console.log('index', 'componentDidMount');
+    const article = '<div style="color: red">我是HTML代码</div>';
+    WxParse.wxParse('article', 'html', article, this.$scope, 5);
   }
 
   componentWillUnmount() {
@@ -37,7 +38,8 @@ export default class Index extends Component {
     return (
       <View className='index'>
         <Text>Hello world!</Text>
-        <import src='../../templates/wxParse/wxParse.wxml'/>
+        <import src='../../components/wxParse/wxParse_weixin.wxml'/>
+        <template is='wxParse' data='{{wxParseData:article.nodes}}'/>
       </View>
     );
   }

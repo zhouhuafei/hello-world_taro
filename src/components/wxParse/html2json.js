@@ -1,13 +1,13 @@
 /**
  * html2Json 改造来自: https://github.com/Jxck/html2json
- * 
- * 
+ *
+ *
  * author: Di (微信小程序开发工程师)
  * organization: WeAppDev(微信小程序开发论坛)(http://weappdev.com)
  *               垂直微信小程序开发交流社区
- * 
+ *
  * github地址: https://github.com/icindy/wxParse
- * 
+ *
  * for: 微信小程序富文本解析
  * detail : http://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
  */
@@ -109,21 +109,19 @@ function html2json(html, bindName) {
                     var name = attr.name;
                     var value = attr.value;
                     if (name == 'class') {
-                        console.dir(value);
                         //  value = value.join("")
                         node.classStr = value;
                     }
                     // has multi attibutes
                     // make it array of attribute
                     if (name == 'style') {
-                        console.dir(value);
                         //  value = value.join("")
                         node.styleStr = value;
                     }
                     if (value.match(/ /)) {
                         value = value.split(' ');
                     }
-                    
+
 
                     // if attr already exists
                     // merge it
@@ -143,12 +141,11 @@ function html2json(html, bindName) {
                     return pre;
                 }, {});
             }
-
             //对img添加额外数据
             if (node.tag === 'img') {
                 node.imgIndex = results.images.length;
                 var imgUrl = node.attr.src;
-                if (imgUrl[0] == '') {
+                if (imgUrl && imgUrl[0] == '') {
                     imgUrl.splice(0, 1);
                 }
                 imgUrl = wxDiscode.urlToHttpUrl(imgUrl, __placeImgeUrlHttps);
@@ -157,7 +154,7 @@ function html2json(html, bindName) {
                 results.images.push(node);
                 results.imageUrls.push(imgUrl);
             }
-            
+
             // 处理font标签样式属性
             if (node.tag === 'font') {
                 var fontSize = ['x-small', 'small', 'medium', 'large', 'x-large', 'xx-large', '-webkit-xxx-large'];
@@ -182,7 +179,7 @@ function html2json(html, bindName) {
             if(node.tag === 'source'){
                 results.source = node.attr.src;
             }
-            
+
             if (unary) {
                 // if this tag doesn't have end tag
                 // like <img src="hoge.png"/>
@@ -207,7 +204,7 @@ function html2json(html, bindName) {
                 node.attr.src = results.source;
                 delete results.source;
             }
-            
+
             if (bufArray.length === 0) {
                 results.nodes.push(node);
             } else {
@@ -225,7 +222,7 @@ function html2json(html, bindName) {
                 text: text,
                 textArray:transEmojiStr(text)
             };
-            
+
             if (bufArray.length === 0) {
                 node.index = index.toString()
                 index += 1
@@ -258,7 +255,7 @@ function html2json(html, bindName) {
 function transEmojiStr(str){
   // var eReg = new RegExp("["+__reg+' '+"]");
 //   str = str.replace(/\[([^\[\]]+)\]/g,':$1:')
-  
+
   var emojiObjs = [];
   //如果正则表达式为空
   if(__emojisReg.length == 0 || !__emojis){
@@ -286,7 +283,7 @@ function transEmojiStr(str){
     }
     emojiObjs.push(emojiObj);
   }
-  
+
   return emojiObjs;
 }
 
@@ -300,4 +297,3 @@ module.exports = {
     html2json: html2json,
     emojisInit:emojisInit
 };
-

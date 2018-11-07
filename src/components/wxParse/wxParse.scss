@@ -1,3 +1,4 @@
+
 /**
  * author: Di (微信小程序开发工程师)
  * organization: WeAppDev(微信小程序开发论坛)(http://weappdev.com)
@@ -6,7 +7,7 @@
  * github地址: https://github.com/icindy/wxParse
  *
  * for: 微信小程序富文本解析
- * detail: http://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
+ * detail : http://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
  */
 
 .wxParse{
@@ -16,7 +17,6 @@
     color: #666;
     line-height: 1.8;
 }
-/* wxParse-wrap是商详容器，给这个view加了个父选择器限制，是因为直接写view是全局的影响太广泛。还请根据自己的项目，自行替换这个wxParse-wrap。*/
 .wxParse-wrap view{
     word-break:break-all;
 }
@@ -25,7 +25,7 @@
     margin: 0;
     padding: 0;
 }
-/* 标题 */
+/*//标题 */
 .wxParse-div{margin: 0;padding: 0;}
 .wxParse-h1{ font-size:2em; margin: .67em 0 }
 .wxParse-h2{ font-size:1.5em; margin: .75em 0 }
@@ -191,7 +191,7 @@
 	border-left:1px solid #e0e0e0;
 	word-break: break-all;
 }
-.wxParse-td:last-of-type{
+.wxParse-td:last{
 	border-top:1px solid #e0e0e0;
 }
 .wxParse-th{
