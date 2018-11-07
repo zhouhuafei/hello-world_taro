@@ -1,6 +1,9 @@
-import Taro, {Component} from '@tarojs/taro';
-import {View, Text} from '@tarojs/components';
 import './index.scss';
+import Taro, {Component} from '@tarojs/taro';
+import {
+  View,
+  Text,
+} from '@tarojs/components';
 
 export default class Index extends Component {
 
@@ -9,23 +12,23 @@ export default class Index extends Component {
   };
 
   componentWillMount() {
-    console.log('app', 'componentWillMount');
+    console.log('index', 'componentWillMount');
   }
 
   componentDidMount() {
-    console.log('app', 'componentDidMount');
+    console.log('index', 'componentDidMount');
   }
 
   componentWillUnmount() {
-    console.log('app', 'componentWillUnmount');
+    console.log('index', 'componentWillUnmount');
   }
 
   componentDidShow() {
-    console.log('app', 'componentDidShow');
+    console.log('index', 'componentDidShow');
   }
 
   componentDidHide() {
-    console.log('app', 'componentDidHide');
+    console.log('index', 'componentDidHide');
   }
 
   render() {
