@@ -7,3 +7,6 @@ https://github.com/NervJS/taro
 
 # Redux和TypeScript
 * 因增加了开发负担，没有安装使用。
+
+# 最大的弊端
+* 在百度小程序不支持第三方的情况下，无法import到dist中的ext.js。
