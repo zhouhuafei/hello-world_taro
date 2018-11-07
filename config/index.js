@@ -25,8 +25,8 @@ const config = {
   defineConstants: {},
   copy: {
     patterns: [
-      {from: 'diff/components/wxParse/wxParse_baidu.wxml', to: 'dist/components/wxParse/wxParse_baidu.swan'},
-      {from: 'diff/components/wxParse/wxParse_weixin.wxml', to: 'dist/components/wxParse/wxParse_weixin.wxml'},
+      {from: 'src/components/wxParse/wxParse.wxml', to: 'dist/components/wxParse/wxParse.wxml'},
+      {from: 'src/components/wxParse/wxParse.swan', to: 'dist/components/wxParse/wxParse.swan'},
     ],
     options: {},
   },

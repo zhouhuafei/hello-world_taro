@@ -6,7 +6,7 @@ import {
   Navigator,
 } from '@tarojs/components';
 import GFooterNav from '../../components/g-footer-nav';
-import WxParseComponent from '../../components/wxParseComponent';
+import WxParse from '../../components/wxParse/wxParse';
 
 export default class Index extends Component {
 
@@ -25,6 +25,8 @@ export default class Index extends Component {
 
   componentDidMount() {
     console.log('service-content', 'componentDidMount');
+    const content = '<div style="color: red">我是HTML代码</div>';
+    WxParse.wxParse('content', 'html', content, this.$scope, 5);
   }
 
   componentWillUnmount() {
@@ -42,7 +44,10 @@ export default class Index extends Component {
   render() {
     return (
       <View className="container">
-        <WxParseComponent></WxParseComponent>
+        <View className="wxParse-wrap">
+          <import src='../../components/wxParse/wxParse.swan'/>
+          <template is='wxParse' data='{{ {wxParseData:content.nodes} }}'/>
+        </View>
         <GFooterNav></GFooterNav>
       </View>
     );

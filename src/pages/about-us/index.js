@@ -25,7 +25,7 @@ export default class Index extends Component {
 
   componentDidMount() {
     console.log('about-us', 'componentDidMount');
-    const content = '<div style="color: red">我是HTML代码 - 非组件</div>';
+    const content = '<div style="color: red">我是HTML代码</div>';
     WxParse.wxParse('content', 'html', content, this.$scope, 5);
   }
 
@@ -44,8 +44,10 @@ export default class Index extends Component {
   render() {
     return (
       <View className="container">
-        <import src='../../components/wxParse/wxParse_baidu.swan'/>
-        <template is='wxParse' data='{{ {wxParseData:content.nodes} }}'/>
+        <View className="wxParse-wrap">
+          <import src='../../components/wxParse/wxParse.swan'/>
+          <template is='wxParse' data='{{ {wxParseData:content.nodes} }}'/>
+        </View>
         <GFooterNav></GFooterNav>
       </View>
     );
