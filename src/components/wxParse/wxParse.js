@@ -14,12 +14,13 @@
  **/
 import showdown from './showdown.js';
 import HtmlToJson from './html2json.js';
+import Taro from '@tarojs/taro';
 /**
  * 配置及公有属性
  **/
 var realWindowWidth = 0;
 var realWindowHeight = 0;
-wx.getSystemInfo({
+Taro.getSystemInfo({
   success: function (res) {
     realWindowWidth = res.windowWidth
     realWindowHeight = res.windowHeight
@@ -56,7 +57,7 @@ function wxParseImgTap(e) {
   var nowImgUrl = e.target.dataset.src;
   var tagFrom = e.target.dataset.from;
   if (typeof (tagFrom) != 'undefined' && tagFrom.length > 0) {
-    wx.previewImage({
+    Taro.previewImage({
       current: nowImgUrl, // 当前显示图片的http链接
       urls: that.bindData[tagFrom].imageUrls // 需要预览的图片http链接列表
     })

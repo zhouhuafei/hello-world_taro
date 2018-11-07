@@ -38,8 +38,8 @@ export default class Index extends Component {
     return (
       <View className='index'>
         <Text>Hello world!</Text>
-        <import src='../../components/wxParse/wxParse_weixin.wxml'/>
-        <template is='wxParse' data='{{wxParseData:article.nodes}}'/>
+        <import src='../../components/wxParse/wxParse_baidu.swan'/>
+        <template is='wxParse' data='{{{wxParseData:article.nodes}}}'/>
       </View>
     );
   }
