@@ -48,7 +48,7 @@ export default class Index extends Component {
         {
           /*
           <import src='../../components/wxParse/wxParse_baidu.swan'/>
-          <template is='wxParse' data='{{{wxParseData:article.nodes}}}'/>
+          <template is='wxParse' data='{{ {wxParseData:article.nodes} }}'/>
           */
         }
         <GFooterNav></GFooterNav>
