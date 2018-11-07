@@ -74,7 +74,7 @@ export default class Index extends Component {
         <View className="g-footer-nav-wrap">
           <View className="g-footer-nav">
             <Navigator url="/pages/home/index" className="g-footer-nav-item">
-              <View className="g-footer-nav-item-text">官方首页</View>
+              <View className="g-footer-nav-item-text">官方</View>
               <View className="g-footer-nav-item-desc">Home page</View>
             </Navigator>
             <Navigator url="/pages/service-content/index" className="g-footer-nav-item">
