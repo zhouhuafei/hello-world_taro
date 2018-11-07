@@ -6,7 +6,7 @@ import {
   Navigator,
 } from '@tarojs/components';
 import GFooterNav from '../../components/g-footer-nav';
-// import WxParse from '../../components/wxParse/wxParse';
+import WxParse from '../../components/wxParse/wxParse';
 
 export default class Index extends Component {
 
@@ -25,8 +25,8 @@ export default class Index extends Component {
 
   componentDidMount() {
     console.log('about-us', 'componentDidMount');
-    // const article = '<div style="color: red">我是HTML代码</div>';
-    // WxParse.wxParse('article', 'html', article, this.$scope, 5);
+    const content = '<div style="color: red">我是HTML代码 - 非组件</div>';
+    WxParse.wxParse('content', 'html', content, this.$scope, 5);
   }
 
   componentWillUnmount() {
@@ -44,12 +44,8 @@ export default class Index extends Component {
   render() {
     return (
       <View className="container">
-        {
-          /*
-          <import src='../../components/wxParse/wxParse_baidu.swan'/>
-          <template is='wxParse' data='{{{wxParseData:article.nodes}}}'/>
-          */
-        }
+        <import src='../../components/wxParse/wxParse_baidu.swan'/>
+        <template is='wxParse' data='{{ {wxParseData:content.nodes} }}'/>
         <GFooterNav></GFooterNav>
       </View>
     );
