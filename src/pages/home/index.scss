@@ -22,7 +22,7 @@ html, body, page {
   display: block;
 }
 
-// 百度小程序覆盖子组件的样式。
+// 百度小程序覆盖子组件的样式(不推荐，建议给组件传递不同的参数，进行控制class的不同，去得到想要的结果)。
 .g-footer-nav__g-footer-nav-wrap {
   color: #ffffff !important;
 }
