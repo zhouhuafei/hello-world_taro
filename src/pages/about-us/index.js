@@ -26,7 +26,7 @@ export default class Index extends Component {
   componentDidMount() {
     console.log('about-us', 'componentDidMount');
     const content = '<div style="color: red">我是HTML代码</div>';
-    WxParse.wxParse('content', 'html', content, this.$scope, 5);
+    WxParse.wxParse('content', 'html', content, this.$scope, 5); // 这里如果传的是this，则wxParse.js中需要把this.setData换成this.setState
   }
 
   componentWillUnmount() {
