@@ -1,5 +1,5 @@
 const config = {
-  projectName: 'suibianxiexie_taro',
+  projectName: 'hello-world_taro',
   date: '2018-11-7',
   designWidth: 750,
   deviceRatio: {
