@@ -1,3 +1,4 @@
+// 此处获取不到process.env.TARO_ENV的值，所以我通过process.argv[3]来获取。
 const type = process.argv[3]; // swan weapp alipay tt h5 rn
 const isDevelopment = process.env.NODE_ENV === 'development';
 const isProduction = process.env.NODE_ENV === 'production';
