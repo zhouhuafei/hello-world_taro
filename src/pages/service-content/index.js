@@ -44,10 +44,24 @@ export default class Index extends Component {
   render() {
     return (
       <View className="container">
-        <View className="wxParse-wrap">
-          <import src='../../components/wxParse/wxParse.swan'/>
-          <template is='wxParse' data='{{ {wxParseData:content.nodes} }}'/>
-        </View>
+        {process.env.TARO_ENV === 'swan' ? (
+          <View className="wxParse-wrap">
+            <import src='../../components/wxParse/wxParse.swan'/>
+            <template is='wxParse' data='{{ {wxParseData:content.nodes} }}'/>
+          </View>
+        ) : ''}
+        {process.env.TARO_ENV === 'weapp' ? (
+          <View className="wxParse-wrap">
+            <import src='../../components/wxParse/wxParse.wxml'/>
+            <template is='wxParse' data='{{ wxParseData:content.nodes }}'/>
+          </View>
+        ) : ''}
+        {process.env.TARO_ENV === 'tt' ? (
+          <View className="wxParse-wrap">
+            <import src='../../components/wxParse/wxParse.ttml'/>
+            <template is='wxParse' data='{{ wxParseData:content.nodes }}'/>
+          </View>
+        ) : ''}
         <GFooterNav></GFooterNav>
       </View>
     );

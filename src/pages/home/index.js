@@ -44,9 +44,7 @@ export default class Index extends Component {
   render() {
     return (
       <View className="container" style={{backgroundImage: `url(${this.state.pageBg})`}}>
-        {
-          process.env.TARO_ENV === 'weapp' ? 'weapp' : 'swan'
-        }
+        {process.env.TARO_ENV}
         <Image className="logo" src={this.state.logo}></Image>
         <GFooterNav></GFooterNav>
       </View>
