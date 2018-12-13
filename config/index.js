@@ -5,6 +5,37 @@ const isProduction = process.env.NODE_ENV === 'production';
 console.log('type', type);
 console.log('isDevelopment', isDevelopment);
 console.log('isProduction', isProduction);
+const patterns = [];
+if (type === 'swan') {
+  patterns.push({
+    from: 'diff/baidu/components/wxParse/wxParse.xml',
+    to: 'dist/components/wxParse/wxParse.swan',
+  });
+  patterns.push({
+    from: isProduction ? 'diff/baidu/project-build.config.json' : 'diff/baidu/project-dev.config.json',
+    to: 'dist/project.swan.json',
+  });
+}
+if (type === 'weapp') {
+  patterns.push({
+    from: 'diff/weixin/components/wxParse/wxParse.xml',
+    to: 'dist/components/wxParse/wxParse.wxml',
+  });
+  patterns.push({
+    from: isProduction ? 'diff/weixin/project-build.config.json' : 'diff/weixin/project-dev.config.json',
+    to: 'dist/project.config.json',
+  });
+}
+if (type === 'tt') {
+  patterns.push({
+    from: 'diff/toutiao/components/wxParse/wxParse.xml',
+    to: 'dist/components/wxParse/wxParse.ttml',
+  });
+  patterns.push({
+    from: isProduction ? 'diff/toutiao/project-build.config.json' : 'diff/toutiao/project-dev.config.json',
+    to: 'dist/project.config.json',
+  });
+}
 
 const config = {
   projectName: 'hello-world_taro',
@@ -32,20 +63,7 @@ const config = {
   },
   defineConstants: {},
   copy: {
-    patterns: [
-      {
-        from: 'src/components/wxParse/wxParse.wxml',
-        to: 'dist/components/wxParse/wxParse.wxml',
-      },
-      {
-        from: 'src/components/wxParse/wxParse.swan',
-        to: 'dist/components/wxParse/wxParse.swan',
-      },
-      {
-        from: process.env.NODE_ENV === 'production' ? 'diff/baidu/project-build.swan.json' : 'diff/baidu/project-dev.swan.json',
-        to: 'dist/project.swan.json',
-      },
-    ],
+    patterns: patterns,
     options: {},
   },
   weapp: {
