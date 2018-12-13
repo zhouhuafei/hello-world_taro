@@ -11,6 +11,7 @@ class App extends Component {
       'pages/contact-us/index',
       'pages/about-us/index',
       'pages/service-content/index',
+      'pages/form/index'
     ],
     window: {
       backgroundTextStyle: 'light',

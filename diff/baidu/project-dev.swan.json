@@ -1,0 +1,49 @@
+{
+  "libVersion": "2.10.16",
+  "appid": "wx464947edc7d048ae",
+  "setting": {
+    "urlCheck": false
+  },
+  "condition": {
+    "swan": {
+      "current": -1,
+      "list": [
+        {
+          "dependencyGraph": true,
+          "name": "表单提交",
+          "pathName": "pages/form/index",
+          "query": "",
+          "scene": ""
+        },
+        {
+          "dependencyGraph": true,
+          "name": "联系我们",
+          "pathName": "pages/contact-us/index",
+          "query": "",
+          "scene": ""
+        },
+        {
+          "dependencyGraph": true,
+          "name": "关于我们",
+          "pathName": "pages/about-us/index",
+          "query": "",
+          "scene": ""
+        },
+        {
+          "dependencyGraph": true,
+          "name": "服务内容",
+          "pathName": "pages/service-content/index",
+          "query": "",
+          "scene": ""
+        },
+        {
+          "dependencyGraph": true,
+          "name": "产品案例",
+          "pathName": "pages/product-case/index",
+          "query": "",
+          "scene": ""
+        }
+      ]
+    }
+  }
+}

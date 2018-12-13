@@ -3,6 +3,7 @@
     "taro"
   ],
   "rules": {
+    "react/jsx-tag-spacing": 0,
     "react/no-unused-state": 0,
     "jsx-quotes": 0,
     "import/first": 0,

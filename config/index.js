@@ -25,8 +25,18 @@ const config = {
   defineConstants: {},
   copy: {
     patterns: [
-      {from: 'src/components/wxParse/wxParse.wxml', to: 'dist/components/wxParse/wxParse.wxml'},
-      {from: 'src/components/wxParse/wxParse.swan', to: 'dist/components/wxParse/wxParse.swan'},
+      {
+        from: 'src/components/wxParse/wxParse.wxml',
+        to: 'dist/components/wxParse/wxParse.wxml',
+      },
+      {
+        from: 'src/components/wxParse/wxParse.swan',
+        to: 'dist/components/wxParse/wxParse.swan',
+      },
+      {
+        from: process.env.NODE_ENV === 'production' ? 'diff/baidu/project-build.swan.json' : 'diff/baidu/project-dev.swan.json',
+        to: 'dist/project.swan.json',
+      },
     ],
     options: {},
   },
@@ -38,7 +48,7 @@ const config = {
         },
         url: {
           enable: true,
-          limit: 10240,
+          limit: 20480,
         },
       },
     },
