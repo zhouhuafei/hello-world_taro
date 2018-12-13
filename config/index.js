@@ -1,3 +1,10 @@
+const type = process.argv[3]; // swan weapp alipay tt h5 rn
+const isDevelopment = process.env.NODE_ENV === 'development';
+const isProduction = process.env.NODE_ENV === 'production';
+console.log('type', type);
+console.log('isDevelopment', isDevelopment);
+console.log('isProduction', isProduction);
+
 const config = {
   projectName: 'hello-world_taro',
   date: '2018-11-7',
