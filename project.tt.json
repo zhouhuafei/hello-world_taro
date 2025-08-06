@@ -1,6 +1,6 @@
 {
   "miniprogramRoot": "./",
-  "projectname": "hello-world_taro2/",
+  "projectname": "hello-world_taro",
   "appid": "testAppId",
   "setting": {
     "es6": false,

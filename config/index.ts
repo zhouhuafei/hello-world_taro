@@ -6,7 +6,7 @@ import prodConfig from './prod'
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
 export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
   const baseConfig: UserConfigExport<'webpack5'> = {
-    projectName: 'hello-world_taro2/',
+    projectName: 'hello-world_taro',
     date: '2025-8-6',
     designWidth: 750,
     deviceRatio: {
