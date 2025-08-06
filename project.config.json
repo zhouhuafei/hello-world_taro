@@ -1,11 +1,13 @@
 {
   "miniprogramRoot": "./dist",
-  "projectname": "hello-world_taro",
+  "projectname": "hello-world_taro2/",
   "description": "",
-  "appid": "wx464947edc7d048ae",
+  "appid": "touristappid",
   "setting": {
     "urlCheck": true,
     "es6": false,
+    "enhance": false,
+    "compileHotReLoad": false,
     "postcss": false,
     "minified": false
   },
