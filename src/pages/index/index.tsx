@@ -3,7 +3,6 @@ import { useEffect, useRef } from 'react'
 import { View, Canvas } from '@tarojs/components'
 import lottie from 'lottie-miniprogram'
 import './index.scss'
-import { fail } from 'mobx/lib/utils/utils'
 
 const Index = () => {
   const animationRef: any = useRef(null)
@@ -49,7 +48,16 @@ const Index = () => {
           animationRef.current = anim
 
           setTimeout(() => {
-            anim.goToAndPlay(120, true) // 从第120帧开始播放
+            // goToAndStop 跳转到指定位置并停止
+            // goToAndPlay 跳转到指定位置并播放
+            // playSegments 指定一段或多段范围并让动画在这些范围内播放
+            anim.playSegments([0, 60], true)
+            setTimeout(() => {
+              anim.playSegments([60, 120], true)
+              setTimeout(() => {
+                anim.playSegments([120, 180], true)
+              }, 2000)
+            }, 2000)
           }, 2000)
         })
     }
