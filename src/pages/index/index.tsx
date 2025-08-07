@@ -44,7 +44,7 @@ const Index = () => {
             },
             loop: true, // 循环播放
             autoplay: true, // 自动播放
-            path: demoJsonData // 本地 JSON 路径
+            path: JSON.stringify(demoJsonData) // 本地 JSON 路径
           })
 
           // 保存动画实例
