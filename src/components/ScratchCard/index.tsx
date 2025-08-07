@@ -1,9 +1,10 @@
 import css from './index.module.scss'
-import { View } from '@tarojs/components'
+import { Canvas, View } from '@tarojs/components'
 import { useEffect, useState } from 'react'
 
 function Index (props) {
   console.log('======props', props)
+  const canvasId = 'canvasId'
   const [resData, setResData] = useState({})
   console.log('======resData', resData)
 
@@ -14,7 +15,8 @@ function Index (props) {
 
   return (
     <View className={css.container}>
-      View
+      <View className={css.product}>product</View>
+      <Canvas className={css.canvas} canvasId={canvasId} />
     </View>
   )
 }
