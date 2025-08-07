@@ -6,7 +6,7 @@ import { throttle } from 'lodash'
 
 function Index (props) {
   console.log('props：', props)
-  const canvasId = 'canvasId'
+  const canvasId = useRef(`canvasId${Date.now()}${Math.random().toString().slice(2)}`)
   const [resData, setResData] = useState({ prize: '谢谢参与' })
   console.log('resData：', resData)
   const [isScratched, setIsScratched] = useState(false)
@@ -17,7 +17,7 @@ function Index (props) {
   const throttledCheckScratchArea = useRef(
     throttle(() => {
       checkScratchArea()
-    }, 500)
+    }, 200)
   ).current
 
   useEffect(() => {
@@ -28,14 +28,14 @@ function Index (props) {
 
   const initCanvas = () => {
     const query = Taro.createSelectorQuery()
-    query.select(`#${canvasId}`)
+    query.select(`#${canvasId.current}`)
       .boundingClientRect()
       .exec((res) => {
         if (res && res[0]) {
           const { width, height } = res[0]
           canvasSize.current = { width, height }
 
-          const ctx = Taro.createCanvasContext(canvasId)
+          const ctx = Taro.createCanvasContext(canvasId.current)
           ctxRef.current = ctx
 
           ctx.setFillStyle('#cccccc')
@@ -79,7 +79,7 @@ function Index (props) {
     if (!width || !height) return
 
     Taro.canvasGetImageData({
-      canvasId,
+      canvasId: canvasId.current,
       x: 0,
       y: 0,
       width,
@@ -117,8 +117,8 @@ function Index (props) {
       </View>
       <Canvas
         style={{ display: isScratched ? 'none' : 'block' }}
-        id={canvasId}
-        canvasId={canvasId}
+        id={canvasId.current}
+        canvasId={canvasId.current}
         className={css.canvas}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}

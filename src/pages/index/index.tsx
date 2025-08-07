@@ -6,6 +6,7 @@ const Index = () => {
   return (
     <View className={css.container}>
       <ScratchCard />
+      <ScratchCard />
     </View>
   )
 }
