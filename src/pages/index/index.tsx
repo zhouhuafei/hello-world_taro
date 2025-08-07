@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { useEffect, useRef } from 'react'
 import { View, Canvas } from '@tarojs/components'
 import lottie from 'lottie-miniprogram'
+import demoJsonData from '../../animations/demo.json'
 
 const Index = () => {
   // 动画实例引用
@@ -10,14 +11,6 @@ const Index = () => {
   const canvasId = `lottie-${Date.now()}`
 
   useEffect(() => {
-    const fileSystemManager = Taro.getFileSystemManager()
-    const res = fileSystemManager.readFileSync({
-      filePath: `../../animations/demo.json`,
-      encoding: 'utf8'
-    })
-    console.log('======res', res)
-
-
     // 加载并渲染 Lottie 动画
     const loadAnimation = () => {
       // 获取 Canvas 上下文
@@ -50,7 +43,7 @@ const Index = () => {
             },
             loop: true, // 循环播放
             autoplay: true, // 自动播放
-            path: animationPath // 本地 JSON 路径
+            path: demoJsonData // 本地 JSON 路径
           })
 
           // 保存动画实例
