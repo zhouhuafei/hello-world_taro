@@ -44,7 +44,8 @@ const Index = () => {
             },
             loop: true, // 循环播放
             autoplay: true, // 自动播放
-            path: JSON.stringify(demoJsonData) // 本地 JSON 路径
+            // path: JSON.stringify(demoJsonData), // 不支持本地JSON
+            path: 'https://ckc-uat.oss-cn-shanghai.aliyuncs.com/hongshanpintu_client/hand/animations/demo.json' // The 'path' is only support http protocol.
           })
 
           // 保存动画实例
