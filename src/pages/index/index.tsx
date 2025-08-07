@@ -2,17 +2,19 @@ import Taro from '@tarojs/taro'
 import { useEffect, useRef } from 'react'
 import { View, Canvas } from '@tarojs/components'
 import lottie from 'lottie-miniprogram'
-import demoJsonData from '../../animations/demo.json'
+import './index.scss'
 
 const Index = () => {
-  // 动画实例引用
-  const animationRef = useRef(null)
-  // Canvas 唯一ID
+  const animationRef: any = useRef(null)
   const canvasId = `lottie-${Date.now()}`
 
   useEffect(() => {
     // 加载并渲染 Lottie 动画
-    const loadAnimation = () => {
+    const loadAnimation = async () => {
+      const response = await Taro.request({ url: 'https://ckc-uat.oss-cn-shanghai.aliyuncs.com/hongshanpintu_client/hand/animations/demo.json?v=1.0.0' })
+      const animationData = response.data
+      console.log('animationData', animationData)
+      console.log('总帧数：', animationData.op)
       // 获取 Canvas 上下文
       const query = Taro.createSelectorQuery()
       query.select(`#${canvasId}`)
@@ -33,19 +35,13 @@ const Index = () => {
           canvas.height = res[0].height * dpr
           context.scale(dpr, dpr)
 
-
-          // 加载本地 Lottie JSON 动画
-          console.log('demoJsonData', demoJsonData)
           const anim = lottie.loadAnimation({
-            renderer: 'canvas', // 小程序推荐使用 canvas 渲染
-            rendererSettings: {
-              canvas,
-              context
-            },
-            loop: true, // 循环播放
-            autoplay: true, // 自动播放
-            // path: JSON.stringify(demoJsonData), // 不支持本地JSON
-            path: 'https://ckc-uat.oss-cn-shanghai.aliyuncs.com/hongshanpintu_client/hand/animations/demo.json' // The 'path' is only support http protocol.
+            renderer: 'canvas',
+            // @ts-ignore
+            rendererSettings: { canvas, context },
+            loop: true,
+            autoplay: true,
+            animationData
           })
 
           // 保存动画实例
@@ -65,13 +61,9 @@ const Index = () => {
   }, [])
 
   return (
-    <View className="container" style={{ display: 'flex', justifyContent: 'center', padding: '20px' }}>
-      <View style={{ width: '300px', height: '300px' }}>
-        <Canvas
-          id={canvasId}
-          type="2d"
-          style={{ width: '100%', height: '100%' }}
-        />
+    <View className="pageIndex">
+      <View className="container">
+        <Canvas className="canvas" id={canvasId} type="2d" />
       </View>
     </View>
   )
