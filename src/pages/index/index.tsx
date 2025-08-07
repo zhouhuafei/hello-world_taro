@@ -35,6 +35,7 @@ const Index = () => {
 
 
           // 加载本地 Lottie JSON 动画
+          console.log('demoJsonData', demoJsonData)
           const anim = lottie.loadAnimation({
             renderer: 'canvas', // 小程序推荐使用 canvas 渲染
             rendererSettings: {
