@@ -1,14 +1,12 @@
 import css from './index.module.scss'
 import { View } from '@tarojs/components'
-import ScratchCard from '@/components/ScratchCard/index'
 
-const Index = () => {
+function Index () {
   return (
     <View className={css.container}>
-      <ScratchCard />
+      View
     </View>
   )
 }
 
 export default Index
-

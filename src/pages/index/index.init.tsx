@@ -5,6 +5,7 @@ import { observer, inject } from 'mobx-react'
 import './index.scss'
 
 type PageStateProps = {
+  children?: React.ReactNode,
   store: {
     counterStore: {
       counter: number,
