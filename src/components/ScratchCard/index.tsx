@@ -2,7 +2,7 @@ import css from './index.module.scss'
 import { Canvas, View } from '@tarojs/components'
 import { useEffect, useState, useRef } from 'react'
 import Taro from '@tarojs/taro'
-import { debounce } from 'lodash'
+import { throttle } from 'lodash'
 
 function Index (props) {
   console.log('props：', props)
@@ -10,15 +10,14 @@ function Index (props) {
   const [resData, setResData] = useState({ prize: '谢谢参与' })
   console.log('resData：', resData)
   const [isScratched, setIsScratched] = useState(false)
-  const [startX, setStartX] = useState(0)
-  const [startY, setStartY] = useState(0)
+  const startX = useRef(0)
+  const startY = useRef(0)
   const ctxRef: any = useRef(null)
-  const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 })
-
-  const debouncedCheckScratchArea = useRef(
-    debounce(() => {
+  const canvasSize = useRef({ width: 0, height: 0 })
+  const throttledCheckScratchArea = useRef(
+    throttle(() => {
       checkScratchArea()
-    }, 300)
+    }, 500)
   ).current
 
   useEffect(() => {
@@ -34,7 +33,7 @@ function Index (props) {
       .exec((res) => {
         if (res && res[0]) {
           const { width, height } = res[0]
-          setCanvasSize({ width, height })
+          canvasSize.current = { width, height }
 
           const ctx = Taro.createCanvasContext(canvasId)
           ctxRef.current = ctx
@@ -49,8 +48,8 @@ function Index (props) {
   const handleTouchStart = (e) => {
     if (isScratched) return
     const { x, y } = e.touches[0]
-    setStartX(x)
-    setStartY(y)
+    startX.current = x
+    startY.current = y
   }
 
   const handleTouchMove = (e) => {
@@ -64,19 +63,19 @@ function Index (props) {
     ctx.setLineCap('round')
     ctx.setLineJoin('round')
     ctx.setLineWidth(30)
-    ctx.moveTo(startX, startY)
+    ctx.moveTo(startX.current, startY.current)
     ctx.lineTo(x, y)
     ctx.stroke()
     ctx.draw(true)
 
-    setStartX(x)
-    setStartY(y)
+    startX.current = x
+    startY.current = y
 
-    debouncedCheckScratchArea()
+    throttledCheckScratchArea()
   }
 
   const checkScratchArea = () => {
-    const { width, height } = canvasSize
+    const { width, height } = canvasSize.current
     if (!width || !height) return
 
     Taro.canvasGetImageData({
@@ -103,7 +102,7 @@ function Index (props) {
   }
 
   const clearAllMask = () => {
-    const { width, height } = canvasSize
+    const { width, height } = canvasSize.current
     const ctx: any = ctxRef.current
     if (ctx && width && height) {
       ctx.clearRect(0, 0, width, height)
