@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react'
 import { View, Canvas } from '@tarojs/components'
 import lottie from 'lottie-miniprogram'
 import './index.scss'
+import { fail } from 'mobx/lib/utils/utils'
 
 const Index = () => {
   const animationRef: any = useRef(null)
@@ -39,13 +40,17 @@ const Index = () => {
             renderer: 'canvas',
             // @ts-ignore
             rendererSettings: { canvas, context },
-            loop: true,
-            autoplay: true,
+            loop: false,
+            autoplay: false,
             animationData
           })
 
           // 保存动画实例
           animationRef.current = anim
+
+          setTimeout(() => {
+            anim.goToAndPlay(120, true) // 从第120帧开始播放
+          }, 2000)
         })
     }
 
